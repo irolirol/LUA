@@ -1,0 +1,4 @@
+if string.find(strPlayer, "Irol") or string.find(strPlayer, "irol") then
+  SetVariable ("VOCCPY", "0")
+  return
+end
