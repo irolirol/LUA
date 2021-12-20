@@ -1,4 +1,22 @@
-if string.find(strPlayer, "Irol") or string.find(strPlayer, "irol") then
+*(*)*騎在*上*
+strPlayer = "%2"
+print ("DEBUG_Player:"..strPlayer)
+strMob = GetVariable("VMOB_NAME")
+
+require "wait"
+wait.make (function ()
+
+print ("DEBUG_strMob:"..strMob)
+if strMob == "leader" then
   SetVariable ("VOCCPY", "0")
   return
 end
+
+if string.find(strPlayer, "Irol") or string.find(strPlayer, "irol") or string.find(strPlayer, "berserk") then
+  SetVariable ("VOCCPY", "0")
+  return
+end
+
+SetVariable ("VOCCPY", "1") 
+
+end)
