@@ -1,2 +1,10 @@
 e41;perform tactic.left.dragon;e4
 202.44.228.185:4153
+
+
+Execute("hp")
+if iKill > 7000 then
+  Execute("pd;pd;pd;exa")
+else
+ Execute("stop;ex5;exa;exert dragon_soul")
+end
