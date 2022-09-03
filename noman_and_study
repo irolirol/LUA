@@ -1,0 +1,61 @@
+strStatus = GetVariable("VSTATUS")
+EnableTimer("PER_BLADE", false)
+if strStatus == "MASTER" then
+  return
+end
+
+print ("DEBUG_iDieFlag:"..iDieFlag)
+if iDieFlag == 1 then
+  return
+end
+iDieFlag = 1
+
+print("TR:這裡沒有這個人")
+i = 5
+require "wait"
+wait.make (function ()
+ wait.time(3)
+ Execute("ex6;exh;hp")
+ wait.time(3)
+ 
+ if string.find(strSICK, "蛇毒")then
+  for iloop = 3,1,-1 do
+     Execute("c3;s;w;heal me")
+     wait.time(2)
+  end
+  wait.time(60)
+  Execute("move 1")
+  iDieFlag = 0
+  return
+ end
+
+
+ if iMagic < 80 or iSpell < 80 or iHP < 90 then
+  for iloop = 2,1,-1 do
+    Execute("exh")
+    wait.time(3)
+  end
+ end
+
+ if iExp >= 70 then
+  SetVariable ("VSTATUS", "MASTER")
+  Execute("rem 4;recall;exa;move 5")
+  for iloop = 1,1,-1 do
+    wait.time(5)
+    Execute("learn spells from master for 1")
+    Execute("ln spells;ln spells;exa")
+    wait.time(i)
+    Execute("ln spells;ln spells;exa")
+    wait.time(i)
+    Execute("ln spells;ln spells;exa")
+    wait.time(i)
+    Execute("ln spells;ln spells;exa")
+    wait.time(i)
+  end
+ Execute("move 4")
+ SetVariable ("VSTATUS", "MOB")
+ end
+
+ GO_MOB()
+ iDieFlag = 0
+end)
