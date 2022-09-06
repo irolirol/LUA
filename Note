@@ -8,3 +8,17 @@ if iKill > 7000 then
 else
  Execute("stop;ex5;exa;exert dragon_soul")
 end
+
+!mob:meditate 2530;p4 1;exa
+
+Execute("hp")
+if iKill > 6000 then
+  Execute("pd;pd;pd;exa")
+elseif iKill < 3000 then
+  Execute("e9;exx;pu;e1;exx")
+else
+ EnableTriggerGroup("SP",false)
+ EnableTriggerGroup("NPC",false)
+ Execute("exa;!mob;k beast;k devil;k goblin;k bug")
+ --Execute("wield sword;p2 8;unwield sword;exa")
+end
