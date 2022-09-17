@@ -22,3 +22,8 @@ else
  Execute("exa;!mob;k beast;k devil;k goblin;k bug")
  --Execute("wield sword;p2 8;unwield sword;exa")
 end
+
+
+ --存龍草
+ wait.time(i)
+ Execute("e;e;e;store grass")
