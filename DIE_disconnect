@@ -1,0 +1,29 @@
+!PGC
+for k, v in pairs (GetPluginList()) do 
+  Note (v)
+ EnablePlugin (v, false)
+end
+
+!PGO
+for k, v in pairs (GetPluginList()) do 
+  Note (v)
+ EnablePlugin (v, true)
+end
+
+--DIE
+item_list = io.open("itemlist.txt", "a")
+line = "IROLISOFKING_死亡"
+item_list:write(line)
+item_list:write("\\n")
+item_list:close()
+
+require "wait"
+wait.make (function ()
+ 
+ EnableTimerGroup ("MAIN", false)
+ Execute("!PGC")
+
+ Execute("quit")
+ Disconnect()
+ 
+end)
