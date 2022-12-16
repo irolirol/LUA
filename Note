@@ -1,19 +1,26 @@
   https://www.uipath.com.cn/resources/automation-webinars/automation-platform-release-event-2022-10/?mkt_tok=OTk1LVhMVC04ODYAAAGINqyhqzL0ql4Z7MU8oPLHDCjt4MlaVf0zmJN8ldq3WV0Fxuvr2Ho75ernJlcH7JB0J2vkExQ_Q5n29WfNQkLlfruZrN6aKaQ0DMMiye3A4-mi3A
   
-  
   https://sendvid.com/eu8gh6qp
   https://sendvid.com/eu8gh6qp?secret=9cc49e11-0e11-413f-b817-ed755afc1079
   
-  Execute("exa;pr5")
-  wait.time(10)
-  Execute("move 4;g1;p")
-  Execute("fight "..strMOBID)
-  SetVariable ("VSTATUS", "MOB")
-  EnableTimer("PER_BLADE", true)
-  iRunFlag = 0
 
-e41;perform tactic.left.dragon;e4
-202.44.228.185:4153
+   for iloop = 3,1,-1 do
+     Execute("exh")
+     wait.time(i)
+   end
+  
+DeleteTemporaryTimers ()
+   
+SetVariable ("EXP_STUDY", string.gsub(%5,'%s+',''))
+iStudy = GetVariable("EXP_STUDY")
+
+
+strTempMob = "%1"
+strMOBID = ""
+strMOBID = GetVariable("VMOB_NAME")
+if string.match(strTempMob, "殭屍") then
+ return
+end
 
 
 Execute("hp")
