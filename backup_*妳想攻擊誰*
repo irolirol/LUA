@@ -1,0 +1,10 @@
+strStatus = GetVariable("VSTATUS")
+EnableTimer("Force", false)
+if strStatus == "MASTER" then
+  return
+end
+
+strMOBID = ""
+strMOBID = GetVariable("VMOB_NAME")
+Execute("kill "..strMOBID)
+
