@@ -31,7 +31,6 @@ else
 end
 
 !mob:meditate 2530;p4 1;exa
-
 Execute("hp")
 if iKill > 6000 then
   Execute("pd;pd;pd;exa")
@@ -48,3 +47,50 @@ end
  --存龍草
  wait.time(i)
  Execute("e;e;e;store grass")
+ 
+ 
+ --腳下一個不穩
+strTempMob = "%1"
+strMOBID = ""
+strMOBID = GetVariable("VMOB_NAME")
+strKING_OUT = ""
+strKING_OUT = GetVariable("VKING_OUT")
+
+if string.match(strTempMob, "殭屍") then
+ return
+end
+
+if string.match(strTempMob, "弟子") then
+ Execute("kill servant")
+ return
+end
+
+
+if string.match(strTempMob, "守門衛士") then
+ Execute("kill guard")
+ return
+end
+
+if string.match(strTempMob, "守衛") then
+ Execute("kill guard")
+ return
+end
+
+if string.match(strTempMob, "巡邏衛士") then
+ Execute("kill garrison")
+ return
+end
+
+require "wait"
+wait.make (function ()
+
+  Execute("stop")
+  Execute(strKING_OUT)
+  wait.time(5)
+  Execute("fight "..strMOBID)
+
+end) 
+
+
+
+
